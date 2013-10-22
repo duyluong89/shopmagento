@@ -1,0 +1,70 @@
+<?php
+/*
+ * Slideshow.php
+ * 
+ * Copyright (c) 2012 Aftab Naveed <aftabnaveed@gmail.com>. 
+ * 
+ * This file is part of Displaze Web Services Inc..
+ * 
+ * Displaze Web Services Inc. is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ * 
+ * Displaze Web Services Inc. is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ * 
+ * You should have received a copy of the GNU General Public License
+ * along with Displaze Web Services Inc..  If not, see <http ://www.gnu.org/licenses/>.
+ */
+
+$_slideshow = $this->getSlideshow();
+?>
+
+<div class="slider">
+<div id="slider"  style="height: 340px; margin: 13px auto auto; width: 980px; overflow: hidden;">
+    <ul>
+        <?php foreach ($_slideshow as $_slide): ?>
+            <li>
+               <div id="landingContent">
+        <div class="inner">
+        <div style="float:left; padding-left:10px; padding-top:20px; width:475px;">
+        <div><h3><?php echo $_slide->getTitle() ?>
+        </h3>
+        <h2><?php echo $_slide->getDescription();?>
+</h2>
+        </div>
+        <br>
+        <a id="theLink" href="<?php echo $_slide->getUrl() ?>"><div class="learn_btn">Shop Now</div></a>
+         </div>
+                <div class="img_section">
+                
+        <div class="img_box"><a id="theLink" href="<?php echo $_slide->getUrl() ?>"><img name="theImage" alt="Magik Dicento Theme" src="<?php echo Mage::helper('myslideshow')->getSlideshowUrl() . $_slide->getImage() ?>"></a></div>
+                
+                
+      </div>
+          </div>        
+        </div>
+            </li>
+            <?php endforeach; ?>
+    </ul>
+</div>
+</div>
+<script type="text/javascript">
+    
+    
+    Event.observe(window, "load", function() {
+	
+        jQuery('#slider').easySlider({
+        	auto: true,
+    		continuous: true,
+    		numeric: true
+            });
+
+	
+	
+    });
+</script>
+

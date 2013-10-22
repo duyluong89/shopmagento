@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+	  <tabs>
+		<smartslider translate="label" module="slider">
+            <label>Smart slider</label>
+            <sort_order>0</sort_order>
+        </smartslider>
+	  </tabs>
+</config>

@@ -1,0 +1,93 @@
+<?xml version="1.0"?>
+<config>
+  <modules>
+    <Smartphp_Slider>
+      <version>0.1.0</version>
+    </Smartphp_Slider>
+  </modules>
+  <global>
+    <helpers>
+      <slider>
+        <class>Smartphp_Slider_Helper</class>
+      </slider>
+    </helpers>
+	<blocks>
+	  <slider>
+		<class>Smartphp_Slider_Block</class>
+	  </slider>
+	</blocks>
+	<resources>
+	  <slider_setup>
+		<setup>
+		  <module>Smartphp_Slider</module>
+		</setup>
+		<connection>
+		  <use>core_setup</use>
+		</connection>
+	  </slider_setup>
+	  <slider_write>
+		<connection>
+		  <use>core_write</use>
+		</connection>
+	  </slider_write>
+	  <slider_read>
+		<connection>
+		  <use>core_read</use>
+		</connection>
+	  </slider_read>
+	</resources>
+  </global>
+  <admin>
+	<routers>
+	  <slider>
+	    <use>admin</use>
+		<args>
+		  <module>Smartphp_Slider</module>
+		  <frontName>slider</frontName>
+		</args>
+	  </slider>
+	</routers>
+  </admin>
+  <adminhtml>
+	<menu>
+	  <slider module="slider">
+		<title>Slider</title>
+		<sort_order>100</sort_order>
+		<children>
+		  <sliderbackend module="slider">
+			<title>Slider configuration</title>
+			<sort_order>0</sort_order>
+			<action>slider/adminhtml_sliderbackend</action>
+		  </sliderbackend>
+		</children>
+	  </slider>
+	</menu>
+	<acl>
+	  <resources>
+		<all>
+		  <title>Allow Everything</title>
+		</all>
+		<admin>
+		  <children>
+			<slider translate="title" module="slider">
+			  <title>Slider</title>
+			  <sort_order>1000</sort_order>
+			  <children>
+		  <sliderbackend translate="title">
+			<title>Slider configuration</title>
+		  </sliderbackend>
+			  </children>
+			</slider>
+		  </children>
+		</admin>
+	  </resources>
+	</acl>
+	<layout>
+	  <updates>
+		<slider>
+		  <file>slider.xml</file>
+		</slider>
+	  </updates>
+	</layout>
+  </adminhtml>
+</config> 
