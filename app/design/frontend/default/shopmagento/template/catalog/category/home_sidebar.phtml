@@ -1,0 +1,21 @@
+<div class="sidebar_home">
+<ul>
+<?php
+$sidebar = $this->createSidebar(3);
+foreach ($sidebar as $key =>$val){
+	$category = $val['category'];
+	$product = $val['products'];
+	?>
+	<li class="cat"><h2><a href="<?php echo $category->getUrl();?>"><?php echo $category->getName();?></a></h2>
+	<?php if(isset($product) && count($product) > 0): ?>
+		<ul>
+			<?php foreach ($product as $_product) :  ?>
+				<?php $_product = $_product->load();?>
+					<li class="pduct"><span>&#187; </span><a href="<?php echo $_product->getProductUrl();?>"><?php echo $_product->getName();?></a>
+			<?php endforeach; ?>
+		</ul>
+	<?php endif;?>
+	</li>
+<?php } ?>
+</ul>
+</div>
